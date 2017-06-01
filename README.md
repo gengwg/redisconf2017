@@ -36,9 +36,9 @@ _RC now, AG in a few weeks_
 
 2. more threading
 
-3. better clienting
+3. better clienting (wg??)
 
-4. client side cacheing
+4. client side caching
 
 DISQUE
 
