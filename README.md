@@ -1,6 +1,6 @@
-# redisconf2017
+# RedisConf 2017
 
-Notes from redisconf 2017.
+Notes from RedisConf 2017.
 May 30–June 1, 2017
 Marriott Marquis, San Francisco
 
@@ -296,4 +296,96 @@ spark summit
 
 ### pattern language for microservices (eventuate.io)
 
+chris richardson
+
 microservices patterns  
+
+functional decomposition  
+api gateway  
+
+easily try other technologies  
+and fail safely...  
+
+cache
+
+no silver bullet  
+complexity  
+development: ipc, partial failure, distributed data  
+testing: integration, end to end  
+deployment  
+
+always ask good fit for my application?  
+
+pattern: reusable solution  
+
+microservices.io  
+
+distributed data mgmt  
+loose coupling = encapsulated data  
+queries across multiple db  
+can not use acid transactions  
+2 phase commit is not an option  
+instead use event driven sagas  
+saga-based eventually consistent order processsing  
+
+### observability and glorious future: future of observability in complex systems
+
+data reliability engineering  
+dba ops  
+hates monitoring  
+honeycomb facebook  
+not monitoring company  
+
+monitoring --> observability  
+
+unreliable symptoms or reports  
+as soon as we know the question, we usually know the answer too.  
+
+full stack instrumentation  
+you need strace for systems
+
+symptoms not problems  
+
+no more easy problems in the future, only hard problems
+
+if there is a schema or index, it is not future proof  
+
+context is everything, preserve it  
+
+debugging with data, not eyeballs  
+debugging is a social act.  
+
+event-driven, not pre-aggregated  
+hight cardinality  
+
+### REdis in Kubernetes (amadeus)
+
+reids operator  
+thrid party resources  
+specifity hidden in a new k8s object  
+
+#### next
+opensource redis-manager  
+this month  
+migrate redis-manager logic in an operator  
+package helm chart  
+integrate with k8s service catalogue
+
+easy deployment using k8s
+automation using redis-manager
+
+using redis as session store, no persistent storage
+
+### Redis-ML
+
+performance  
+simplicity through data structures  
+extensibility through modules
+
+any c/c++ program run on redis  
+
+gini impurity
+
+majority vote  
+
+docker pull shaynativredis-ml
