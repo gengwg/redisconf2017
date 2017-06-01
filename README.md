@@ -70,6 +70,9 @@ nasa, openstack, pivotal
 2. clean up
 3. say sorry
 
+Kids today do not roll vcr.  
+we need things instant  
+
 ### Redis Flash on K8s Demo (google)
 
 taint nodes
@@ -116,6 +119,10 @@ RDB and AOF disabled
 never restart redis automatically  
 never auto join cluster  
 
+`Success over`  
+
+Snapshot only as warm ups. Failover as persistence.
+
 ghostunnel  
 https://github.com/square/ghostunnel  
 authentication  
@@ -134,6 +141,8 @@ min-slave-to-write config
 square internal patches  
 native ssl/tls support
 
+### Rediseach module
+
 ### Redis at Roblox
 
 general purpose LRU cache  
@@ -143,6 +152,8 @@ message relay
 
 stackexchange redis client  
 signalir  
+
+`sub-pub`
 
 chat web server  
 use storage events to set one tab as leader  
