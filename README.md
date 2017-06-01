@@ -224,3 +224,65 @@ a ref:
 http://highscalability.com/blog/2014/9/8/how-twitter-uses-redis-to-scale-105tb-ram-39mm-qps-10000-ins.html
 
 ## Day 2
+
+### Cofounder Redis labs
+
+primary db for enterprise  
+
+redis flash daas  
+redis cloud private  
+
+redis flash  
+dram: keys  and hot values  
+ssd: cold values  
+rdb/aof: persistent storage  
+flash ratios  
+
+NVMe  
+
+modules  
+c/c++, go, python
+multi-threaded  
+
+redis-graph  
+
+redis-ML  
+  serving the model  
+
+ReJSON  
+any database store json  
+native json  
+
+RediSearch  
+
+IoT  
+
+multi-master geo-distributed  
+geo-distributed latency 70ms  
+conflict-free replicated data type  
+consensus free with strong eventual consistency  
+write locally, converge asyn  
+
+CRDB  
+bidirectional replication  
+
+### Redis-ML and Spark (databrics)
+
+big data is missing link  
+hardest part of ai is big data  
+
+data --> spark training --> fs --> customer server <-- client app  
+data loaded in spark  
+model saved in files  
+model loaded to custom app  
+serving client  
+
+spark missing last mile  
+serving the model  
+Redis-ML  
+
+spark summit
+
+### pattern language for microservices (eventuate.io)
+
+microservices patterns  
