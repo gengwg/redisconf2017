@@ -88,10 +88,76 @@ we don't like each other, but we respect each other.
 
 dram database replacing disk database?
 
-1 maintainer for ntp.
+1 maintainer for ntp.  
 lacking fund. infrastructure.
 
-### nighthawk twitter
+### Redis stream (Salvatore Sanfilippo)
+
+radix tree  
+faster than dict.c  
+stream data strucutre in 4.2  
+listpack  
+redis event loop  
+modules threading
+  - key-locking
+  - read-write locks
+  - auto blocking of client accessing busy keys
+
+### Redis at Scale (Square)
+
+LXC contaner  
+
+persistence not guaranteed  
+reply on persistence of slaves and failovers  
+RDB BGSAVE severe performance hit for large datasets  
+never perform on active master ==> disable auto BGSAVE  
+
+RDB and AOF disabled  
+never restart redis automatically  
+never auto join cluster  
+
+ghostunnel  
+https://github.com/square/ghostunnel  
+authentication  
+certificate hotswapping  
+redis.sock accessible only by root  
+
+redis cluster  
+ha in the event of outage due to distributed design  
+consistency at cost of performance  
+can not enforce consistency in network partition  
+
+global readonly  
+redis lacks  
+min-slave-to-write config  
+
+square internal patches  
+native ssl/tls support
+
+### Redis at Roblox
+
+general purpose LRU cache  
+product feature data store  
+rate limiting  
+message relay  
+
+stackexchange redis client  
+signalir  
+
+chat web server  
+use storage events to set one tab as leader  
+others follow from leader tab  
+==> one session to rt web server
+
+distributed cache invalidation  
+- local cache on every machine
+- every invalidation broad cast to all machines
+- reaching a saturation point
+- more traffic if network issue
+
+redis pub-sub?
+
+### nighthawk (twitter)
 
 #### cahce as a service
 redis at core
@@ -106,7 +172,13 @@ redis at core
   * direct messaging
   * mobile app conversion tracking
 
-partition
+#### architecture
+
+client <--> proxy <--> backend redis <--> persistent storage  
+topology and cluster manager  
+
+
+move one partition a time (15 min or 2 hours. configurable.)
 
 vs client managed partitioning
   - thin client
@@ -134,13 +206,21 @@ read from one pools
 - post processing the logs to identify high frequency keys
 - client side key detection and caching
 
-rate-limited copy
+use rate-limited copy when warming replicas  
+esp with active node - you dont want to give it more load during its replication
+
+qa:
 
 topology stored in zookeeper
 
 memecached not good for replication
 
-hashing happens at proxy
-partition stored status at zookeeper
+hashing happens at proxy  
+partition status stored at zookeeper
+
+wg:  
+looks not open sourced?  
+a ref:    
+http://highscalability.com/blog/2014/9/8/how-twitter-uses-redis-to-scale-105tb-ram-39mm-qps-10000-ins.html
 
 ## Day 2
