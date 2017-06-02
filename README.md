@@ -240,7 +240,7 @@ http://highscalability.com/blog/2014/9/8/how-twitter-uses-redis-to-scale-105tb-r
 
 primary db for enterprise  
 
-redis flash daas  
+redis flash dbaas  
 redis cloud private  
 
 redis flash  
@@ -252,7 +252,7 @@ flash ratios
 NVMe  
 
 modules  
-c/c++, go, python
+c/c++, go, python  
 multi-threaded  
 
 redis-graph  
@@ -288,9 +288,8 @@ model saved in files
 model loaded to custom app  
 serving client  
 
-spark missing last mile  
-serving the model  
-Redis-ML  
+spark missing last mile: serving the model  
+==> Redis-ML  
 
 spark summit
 
@@ -389,3 +388,81 @@ gini impurity
 majority vote  
 
 docker pull shaynativredis-ml
+
+### Redis Graph
+
+node  
+relations  
+
+store  
+attributes hash  
+
+graph.addnode  
+graph.addedge  
+edge store  
+
+Hexastore  
+subject predicate object  
+
+```
+match <graph_name> <graph_pattern>
+where <filters>
+return <entities>
+```
+
+query --> parser --> ast --> exec plan  
+
+tokenizer - lex  
+
+graph.explain graph_name query  
+my queries are running slow.  
+create index on it.
+
+### multi-master
+
+CRDT  
+conflict free replicated data types  
+academic research  
+consensus free protocol  
+strong eventual consistency
+
+vector clocks  
+maintain global ordering  
+if need to do any reconciliation
+
+demo at github  
+
+support different cluster topology
+
+counter  
+multi increase --> add together   
+add wins / observed remove  
+
+strings: last write wins  
+
+local clock synced  
+
+### Image View count at imgur
+
+hbase --> redis  
+
+tcp syslog stream (fastly cdn)  
+--> node ingest service  
+--> redis 3.2 cluster   
+--> API service  
+--> imgur / internet
+
+ingest service:  
+parse syslog lines, report metrics via statsd  
+
+hbase --> node backfill service --> redis 3.2 cluster  
+
+faster: 50 ms
+cheaper: reduce 75%
+simpler: incr get
+
+devops and platform team  
+
+php7 redis client
+
+key redirection adds latency
