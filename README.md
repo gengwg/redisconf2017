@@ -1,8 +1,10 @@
 # RedisConf 2017
 
 Notes from RedisConf 2017.
-May 30–June 1, 2017
+May 31–June 1, 2017
 Marriott Marquis, San Francisco
+
+Note I did not attend all the sessions, because they are parallel sessions..
 
 ## Day 1
 
